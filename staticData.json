@@ -1,0 +1,499 @@
+{
+  "name": "ein Wort das nirgends steht",
+  "children": [
+    {
+      "name": "Ein beispiel Jahr",
+      "children": [
+        {
+          "name": "Daniel Buschek",
+          "children": [
+            {"name": "pub_1", "size": 3000},
+            {"name": "pub_2", "size": 3000},
+            {"name": "pub_11", "size": 3000},
+            {"name": "pub_53", "size": 3000}
+          ]
+        },
+        {
+          "name": "Alexander De Luca",
+          "children": [
+            {"name": "pub_1", "size": 3000},
+            {"name": "pub_8", "size": 3000},
+            {"name": "pub_11", "size": 3000},
+            {"name": "pub_46", "size": 3000},
+            {"name": "pub_59", "size": 3000}
+          ]
+        },
+        {
+          "name": "Florian Alt",
+          "children": [
+            {"name": "AspectRatioBanker", "size": 3000}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jahr2",
+      "children": [
+        {
+          "name": "autor A",
+          "children": [
+            {"name": "aaaaaaaa", "size": 3000},
+            {"name": "bbbbbbbbbbb", "size": 3000},
+            {"name": "cccccccccccc", "size": 3000},
+            {"name": "dddddddddddd", "size": 3000},
+            {"name": "eeeeeeee", "size": 3000},
+            {"name": "ffffffff", "size": 3000},
+            {"name": "ggggggggg", "size": 3000},
+            {"name": "hhhhhhhh", "size": 3000},
+            {"name": "iiiiiiiiii", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor B",
+          "children": [
+            {"name": "aaaaaaaa", "size": 3000},
+            {"name": "bbbbbbb", "size": 3000},
+            {"name": "cccccccccccc", "size": 3000},
+            {"name": "dddddddddddd", "size": 3000},
+            {"name": "eeee", "size": 3000},
+            {"name": "ffffff", "size": 3000},
+            {"name": "ggggggggg", "size": 3000},
+            {"name": "hhhhhhhh", "size": 3000},
+            {"name": "iiiiiiii", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor E",
+          "children": [
+            {"name": "aaaaaaaa", "size": 3000},
+            {"name": "bbbbbbb", "size": 3000},
+            {"name": "cccccccccccc", "size": 3000},
+            {"name": "dddddddddddd", "size": 3000},
+            {"name": "eeee", "size": 3000},
+            {"name": "ffffff", "size": 3000},
+            {"name": "ggggggggg", "size": 3000},
+            {"name": "hhhhhhhh", "size": 3000},
+            {"name": "iiiiiiii", "size": 3000}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jahr3",
+      "children": [
+        {
+          "name": "autorc",
+          "children": [
+            {"name": "Converters", "size": 3000},
+            {"name": "DelimitedTextConverter", "size": 3000},
+            {"name": "GraphMLConverter", "size": 3000},
+            {"name": "IDataConverter", "size": 3000},
+            {"name": "JSONConverter", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor D",
+          "children": [
+            {"name": "Converters", "size": 3000},
+            {"name": "DelimitedTextConverter", "size": 3000},
+            {"name": "GraphMLConverter", "size": 3000},
+            {"name": "IDataConverter", "size": 3000},
+            {"name": "JSONConverter", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor E",
+          "children": [
+            {"name": "aaaaaaaa", "size": 3000},
+            {"name": "bbbbbbb", "size": 3000},
+            {"name": "cccccccccccc", "size": 3000},
+            {"name": "dddddddddddd", "size": 3000},
+            {"name": "eeee", "size": 3000},
+            {"name": "ffffff", "size": 3000},
+            {"name": "ggggggggg", "size": 3000},
+            {"name": "hhhhhhhh", "size": 3000},
+            {"name": "iiiiiiii", "size": 3000}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jahr6",
+      "children": [
+        {
+          "name": "autor E",
+          "children": [
+            {"name": "aaaaaaaa", "size": 3000},
+            {"name": "bbbbbbb", "size": 3000},
+            {"name": "cccccccccccc", "size": 3000},
+            {"name": "dddddddddddd", "size": 3000},
+            {"name": "eeee", "size": 3000},
+            {"name": "ffffff", "size": 3000},
+            {"name": "ggggggggg", "size": 3000},
+            {"name": "hhhhhhhh", "size": 3000},
+            {"name": "iiiiiiii", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor E",
+          "children": [
+            {"name": "aaaaaaaa", "size": 3000},
+            {"name": "bbbbbbb", "size": 3000},
+            {"name": "cccccccccccc", "size": 3000},
+            {"name": "dddddddddddd", "size": 3000},
+            {"name": "ggggggggg", "size": 3000},
+            {"name": "hhhhhhhh", "size": 3000},
+            {"name": "iiiiiiii", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor E",
+          "children": [
+            {"name": "aaaaaaaa", "size": 3000},
+            {"name": "bbbbbbb", "size": 3000},
+            {"name": "cccccccccccc", "size": 3000},
+            {"name": "dddddddddddd", "size": 3000},
+            {"name": "ggggggggg", "size": 3000},
+            {"name": "hhhhhhhh", "size": 3000},
+            {"name": "iiiiiiii", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor E",
+          "children": [
+            {"name": "aaaaaaaa", "size": 3000},
+            {"name": "bbbbbbb", "size": 3000},
+            {"name": "cccccccccccc", "size": 3000},
+            {"name": "dddddddddddd", "size": 3000},
+            {"name": "ggggggggg", "size": 3000},
+            {"name": "hhhhhhhh", "size": 3000},
+            {"name": "iiiiiiii", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor E",
+          "children": [
+            {"name": "aaaaaaaa", "size": 3000},
+            {"name": "bbbbbbb", "size": 3000},
+            {"name": "cccccccccccc", "size": 3000},
+            {"name": "dddddddddddd", "size": 3000},
+            {"name": "ggggggggg", "size": 3000},
+            {"name": "hhhhhhhh", "size": 3000},
+            {"name": "iiiiiiii", "size": 3000}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jahr4",
+      "children": [
+        {
+          "name": "autor E",
+          "children": [
+            {"name": "aaaaaaaa", "size": 3000},
+            {"name": "bbbbbbb", "size": 3000},
+            {"name": "cccccccccccc", "size": 3000},
+            {"name": "dddddddddddd", "size": 3000},
+            {"name": "eeee", "size": 3000},
+            {"name": "ffffff", "size": 3000},
+            {"name": "ggggggggg", "size": 3000},
+            {"name": "hhhhhhhh", "size": 3000},
+            {"name": "iiiiiiii", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor E",
+          "children": [
+            {"name": "aaaaaaaa", "size": 3000},
+            {"name": "bbbbbbb", "size": 3000},
+            {"name": "cccccccccccc", "size": 3000},
+            {"name": "dddddddddddd", "size": 3000},
+            {"name": "ggggggggg", "size": 3000},
+            {"name": "hhhhhhhh", "size": 3000},
+            {"name": "iiiiiiii", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor E",
+          "children": [
+            {"name": "aaaaaaaa", "size": 3000},
+            {"name": "bbbbbbb", "size": 3000},
+            {"name": "cccccccccccc", "size": 3000},
+            {"name": "dddddddddddd", "size": 3000},
+            {"name": "ggggggggg", "size": 3000},
+            {"name": "hhhhhhhh", "size": 3000},
+            {"name": "iiiiiiii", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor E",
+          "children": [
+            {"name": "aaaaaaaa", "size": 3000},
+            {"name": "bbbbbbb", "size": 3000},
+            {"name": "cccccccccccc", "size": 3000},
+            {"name": "dddddddddddd", "size": 3000},
+            {"name": "ggggggggg", "size": 3000},
+            {"name": "hhhhhhhh", "size": 3000},
+            {"name": "iiiiiiii", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor E",
+          "children": [
+            {"name": "aaaaaaaa", "size": 3000},
+            {"name": "bbbbbbb", "size": 3000},
+            {"name": "cccccccccccc", "size": 3000},
+            {"name": "dddddddddddd", "size": 3000},
+            {"name": "ggggggggg", "size": 3000},
+            {"name": "hhhhhhhh", "size": 3000},
+            {"name": "iiiiiiii", "size": 3000}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jahr7",
+      "children": [
+        {
+          "name": "Prof Hussmann",
+          "children": [
+            {"name": "add", "size": 3000},
+            {"name": "and", "size": 3000},
+            {"name": "average", "size": 3000},
+            {"name": "count", "size": 3000},
+            {"name": "distinct", "size": 3000},
+            {"name": "div", "size": 3000},
+            {"name": "eq", "size": 3000},
+            {"name": "fn", "size": 3000},
+            {"name": "gt", "size": 3000},
+            {"name": "gte", "size": 3000},
+            {"name": "iff", "size": 3000},
+            {"name": "isa", "size": 3000},
+            {"name": "lt", "size": 3000},
+            {"name": "lte", "size": 3000},
+            {"name": "max", "size": 3000},
+            {"name": "min", "size": 3000},
+            {"name": "mod", "size": 3000},
+            {"name": "mul", "size": 3000},
+            {"name": "neq", "size": 3000},
+            {"name": "not", "size": 3000},
+            {"name": "or", "size": 3000},
+            {"name": "orderby", "size": 3000},
+            {"name": "range", "size": 3000},
+            {"name": "select", "size": 3000},
+            {"name": "stddev", "size": 3000},
+            {"name": "sub", "size": 3000},
+            {"name": "sum", "size": 3000},
+            {"name": "update", "size": 3000},
+            {"name": "variance", "size": 3000},
+            {"name": "where", "size": 3000},
+            {"name": "xor", "size": 3000},
+            {"name": "_", "size": 3000}
+          ]
+        },
+         {
+          "name": "Prof butz",
+          "children": [
+            {"name": "a", "size": 3000},
+            {"name": "b", "size": 3000},
+            {"name": "c", "size": 3000},
+            {"name": "d", "size": 3000},
+            {"name": "distinct", "size": 3000},
+            {"name": "e", "size": 3000},
+            {"name": "f", "size": 3000},
+            {"name": "g", "size": 3000},
+            {"name": "mod", "size": 3000},
+            {"name": "mul", "size": 3000},
+            {"name": "u", "size": 3000},
+            {"name": "sg", "size": 3000},
+            {"name": "rfh", "size": 3000},
+            {"name": "ma", "size": 3000},
+            {"name": "mi", "size": 3000},
+            {"name": "li", "size": 3000},
+            {"name": "la", "size": 3000},
+            {"name": "lu", "size": 3000},
+            {"name": "sum", "size": 3000},
+            {"name": "update", "size": 3000},
+            {"name": "variance", "size": 3000},
+            {"name": "where", "size": 3000},
+            {"name": "xor", "size": 3000},
+            {"name": "_", "size": 3000}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jahr8",
+      "children": [
+        {
+          "name": "Prof Hussmann",
+          "children": [
+            {"name": "add", "size": 3000},
+            {"name": "and", "size": 3000},
+            {"name": "average", "size": 3000},
+            {"name": "count", "size": 3000},
+            {"name": "distinct", "size": 3000},
+            {"name": "div", "size": 3000},
+            {"name": "eq", "size": 3000},
+            {"name": "fn", "size": 3000},
+            {"name": "gt", "size": 3000},
+            {"name": "gte", "size": 3000},
+            {"name": "iff", "size": 3000},
+            {"name": "isa", "size": 3000},
+            {"name": "lt", "size": 3000},
+            {"name": "lte", "size": 3000},
+            {"name": "max", "size": 3000},
+            {"name": "min", "size": 3000},
+            {"name": "mod", "size": 3000},
+            {"name": "mul", "size": 3000},
+            {"name": "neq", "size": 3000},
+            {"name": "not", "size": 3000},
+            {"name": "or", "size": 3000},
+            {"name": "orderby", "size": 3000},
+            {"name": "range", "size": 3000},
+            {"name": "select", "size": 3000},
+            {"name": "stddev", "size": 3000},
+            {"name": "sub", "size": 3000},
+            {"name": "sum", "size": 3000},
+            {"name": "update", "size": 3000},
+            {"name": "variance", "size": 3000},
+            {"name": "where", "size": 3000},
+            {"name": "xor", "size": 3000},
+            {"name": "_", "size": 3000}
+          ]
+        },
+         {
+          "name": "Prof butz",
+          "children": [
+            {"name": "a", "size": 3000},
+            {"name": "b", "size": 3000},
+            {"name": "c", "size": 3000},
+            {"name": "d", "size": 3000},
+            {"name": "distinct", "size": 3000},
+            {"name": "e", "size": 3000},
+            {"name": "f", "size": 3000},
+            {"name": "g", "size": 3000},
+            {"name": "mod", "size": 3000},
+            {"name": "mul", "size": 3000},
+            {"name": "u", "size": 3000},
+            {"name": "sg", "size": 3000},
+            {"name": "rfh", "size": 3000},
+            {"name": "ma", "size": 3000},
+            {"name": "mi", "size": 3000},
+            {"name": "li", "size": 3000},
+            {"name": "la", "size": 3000},
+            {"name": "lu", "size": 3000},
+            {"name": "sum", "size": 3000},
+            {"name": "update", "size": 3000},
+            {"name": "variance", "size": 3000},
+            {"name": "where", "size": 3000},
+            {"name": "xor", "size": 3000},
+            {"name": "_", "size": 3000}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jahr9",
+      "children": [
+        {
+          "name": "autorw",
+          "children": [
+            {"name": "FibonacciHeap", "size": 3000},
+            {"name": "HeapNode", "size": 3000}
+          ]
+        },
+        {
+          "name": "autorw2",
+          "children": [
+            {"name": "DenseMatrix", "size": 3000},
+            {"name": "IMatrix", "size": 3000},
+            {"name": "SparseMatrix", "size": 3000}
+          ]
+        },
+        {
+          "name": "autorw3",
+          "children": [
+            {"name": "ColorPalette", "size": 3000},
+            {"name": "Palette", "size": 3000},
+            {"name": "ShapePalette", "size": 3000},
+            {"name": "SizePalette", "size": 3000}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jahr10",
+      "children": [
+        {
+          "name": "axis",
+          "children": [
+            {"name": "Axes", "size": 3000},
+            {"name": "Axis", "size": 3000},
+            {"name": "AxisGridLine", "size": 3000},
+            {"name": "AxisLabel", "size": 3000},
+            {"name": "CartesianAxes", "size": 3000}
+          ]
+        },
+        {
+          "name": "controls",
+          "children": [
+            {"name": "AnchorControl", "size": 3000},
+            {"name": "ClickControl", "size": 3000},
+            {"name": "Control", "size": 3000},
+            {"name": "ControlList", "size": 3000},
+            {"name": "DragControl", "size": 3000},
+            {"name": "ExpandControl", "size": 3000},
+            {"name": "HoverControl", "size": 3000},
+            {"name": "IControl", "size": 3000},
+            {"name": "PanZoomControl", "size": 3000},
+            {"name": "SelectionControl", "size": 3000},
+            {"name": "TooltipControl", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor x",
+          "children": [
+            {"name": "Data", "size": 3000},
+            {"name": "DataList", "size": 3000},
+            {"name": "DataSprite", "size": 3000},
+            {"name": "EdgeSprite", "size": 3000},
+            {"name": "NodeSprite", "size": 3000},
+            {"name": "ScaleBinding", "size": 3000},
+            {"name": "Tree", "size": 3000},
+            {"name": "TreeBuilder", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor x2",
+          "children": [
+            {"name": "DataEvent", "size": 3000},
+            {"name": "SelectionEvent", "size": 3000},
+            {"name": "TooltipEvent", "size": 3000},
+            {"name": "VisualizationEvent", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor x3",
+          "children": [
+            {"name": "Legend", "size": 3000},
+            {"name": "LegendItem", "size": 3000},
+            {"name": "LegendRange", "size": 3000}
+          ]
+        },
+        {
+          "name": "autor x4",
+          "children": [
+           
+            {"name": "IOperator", "size": 3000},
+            {"name": "Operator", "size": 3000},
+            {"name": "OperatorList", "size": 3000},
+            {"name": "OperatorSequence", "size": 3000},
+            {"name": "OperatorSwitch", "size": 3000},
+            {"name": "SortOperator", "size": 3000}
+          ]
+        }
+      ]
+    }
+  ]
+}
