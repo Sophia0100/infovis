@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<title>PubDB</title>
+
+		<script src="jquery1.11.1.js"></script>
+		<script src="pubdb.js"></script>
+		<script src="main.js"></script>
+
+	</head>
+	<style>
+
+.node {
+  cursor: pointer;
+}
+
+.node:hover {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.node--leaf {
+  fill: white;
+}
+
+.node--leaf:hover{
+	stroke: #8B0000;
+	/*fill: #8B0000;*/
+	stroke-width: 1.5px;
+}
+
+.label {
+  font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-anchor: middle;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+}
+/*
+.label,
+.node--root,
+.node--leaf {
+  pointer-events: none;
+}
+*/
+</style>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+	<body>
+		<img src="assets/loading.gif" style="position: relative; display: block; top: 40%; margin: 0 auto;" alt="loading">
+
+		<h2 style="display: none;">Publications</h2>
+		<textarea style="display: none;" id="publications" rows="2" cols="100">
+			<!-- Publications JSON -->
+		</textarea>
+
+		<h2 style="display: none;">Authors</h2>
+		<textarea style="display: none;" id="authors" rows="2" cols="100">
+			<!-- Authors JSON -->
+		</textarea>
+		
+		<div id="info"> <p>Du befindest Dich hier: <br> 
+		<div id="jahr"> </div>
+		<div id="autor"></div>
+		Infos über die gewählte Publikation:<div id="infotext"></div>
+		</p>
+		</div>
+
+	</body>
+	
+</html>
