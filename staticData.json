@@ -1,8 +1,8 @@
 {
-  "name": "ein Wort das nirgends steht",
+  "name": "Daten",
   "children": [
     {
-      "name": "Ein beispiel Jahr",
+      "name": "1900",
       "children": [
         {
           "name": "Daniel Buschek",
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "name": "Jahr2",
+      "name": "1901",
       "children": [
         {
           "name": "autor A",
@@ -79,7 +79,7 @@
       ]
     },
     {
-      "name": "Jahr3",
+      "name": "1902",
       "children": [
         {
           "name": "autorc",
@@ -118,7 +118,7 @@
       ]
     },
     {
-      "name": "Jahr6",
+      "name": "1903",
       "children": [
         {
           "name": "autor E",
@@ -185,7 +185,7 @@
       ]
     },
     {
-      "name": "Jahr4",
+      "name": "1904",
       "children": [
         {
           "name": "autor E",
@@ -252,7 +252,7 @@
       ]
     },
     {
-      "name": "Jahr7",
+      "name": "1907",
       "children": [
         {
           "name": "Prof Hussmann",
@@ -323,7 +323,7 @@
       ]
     },
     {
-      "name": "Jahr8",
+      "name": "1908",
       "children": [
         {
           "name": "Prof Hussmann",
@@ -394,7 +394,7 @@
       ]
     },
     {
-      "name": "Jahr9",
+      "name": "1909",
       "children": [
         {
           "name": "autorw",
@@ -423,7 +423,7 @@
       ]
     },
     {
-      "name": "Jahr10",
+      "name": "1910",
       "children": [
         {
           "name": "axis",

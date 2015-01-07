@@ -49,8 +49,8 @@ $(document).ready(function() {
 var jahr = "Du siehst alle Jahre";
 var autor = "Du siehst alle Autoren, wenn du in ein Jahr klickst";
 var infotext = "zusammen geschrieben mit// Link// etc";
-d3.select("#jahr").text(function(d) {return "Jahr: " + jahr});
-d3.select("#autor").text(function(d) {return "Autor: " + autor});
+//d3.select("#jahr").text(function(d) {return "Jahr: " + jahr});
+//d3.select("#autor").text(function(d) {return "Autor: " + autor});
 d3.select("#infotext").text(function(d) {return infotext});
 
 var clickedPub = "pub_1";
@@ -110,12 +110,25 @@ d3.json("staticData.json", function(error, root) {
 	$( ".node--leaf" ).click(function() {
 
 		var clickedPub = this.__data__.name;
-//		alert("clickedPub"+ clickedPub);
-//		d3.select("#jahr").text(function(d) {return this.__data__.year});
+		
+		var person = this.__data__.parent.name;
+		var jahr = this.__data__.parent.parent.name;
+		var mit = "";
 	
 		for(var i=0; i < publicationsJSON.length; i++) {
 			if (publicationsJSON[i].id == clickedPub) {
-				var infotext = "Publikation: " + clickedPub + "Jahr: " + publicationsJSON[i].year + "Autoren: " ;
+				
+				for(var j=0; j < publicationsJSON[j].authors.length; j++){
+						mit = mit + ", " + publicationsJSON[i].authors[j].name
+						+ "(" +  publicationsJSON[i].authors[j].url + ")";
+				}
+				
+				
+				var infotext = "Publikation: " + clickedPub 
+									+ " ### Jahr: " + publicationsJSON[i].year 
+									+ " ### Autoren: " 
+			//						 + person + " mit " 
+									 + mit;
 				console.log(publicationsJSON[i].year);
 				d3.select("#infotext").text(infotext);
 			}
@@ -144,6 +157,7 @@ d3.json("staticData.json", function(error, root) {
 				alert("es gibt mich doppelt");
 			}
 		}*/
+		
   	}, function() {
   		var leaf = this.__data__.name;
   		$( ".node--leaf" ).each(function() {
@@ -152,9 +166,35 @@ d3.json("staticData.json", function(error, root) {
   			
   		});
   	});
-  	
 /*###### ende hover gleiche Leafs  #####*/  
   
+  
+  /*########  route anzeigen beim Klick/zoomen (alle Ebenen)  ########*/
+  $( ".node" ).click(function() {
+	
+		var route = this.__data__.name;
+		var parent = this.__data__.parent.name;
+		
+/*		if(this.__data__.parent.class == ".node--root"){
+				d3.select("#info").text("Du befindest Dich hier: " + route);
+		} else if(this.__data__.child.class == ".node--leaf"){
+				parent = this.__data__.parent.__data__.parent.name + " - " + parent;
+				d3.select("#info").text("Du befindest Dich hier: " + parent + " - " + route);
+		}*/
+		
+		d3.select("#info").text("Du befindest Dich hier: " + parent + " - " + route);
+
+	});
+  
+  
+  /*#####  maus zeigt auf..  ####*/
+  
+  $( ".node" ).hover(function(){
+  		//anzeigen wie die Node heißt
+		d3.select("#maus").text(this.__data__.name);  
+  	
+  	});
+
   
   
   zoomTo([root.x, root.y, root.r * 2 + margin]);
