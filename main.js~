@@ -109,7 +109,7 @@ var svg = d3.select("body").append("svg")
     .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
 //root = data; //diese rein. die beiden drunter raus.
-d3.json("staticData2.json", function(error, root) {
+d3.json("staticData.json", function(error, root) {
   if (error) return console.error(error);
 
   var focus = root,

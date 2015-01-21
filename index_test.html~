@@ -76,7 +76,7 @@
 			
 		</textarea>
 		
-		<textarea style="display: none;" id="data" rows="5" cols="100">
+		<textarea style="display: none;" id="data" rows="2" cols="100">
 			
 		</textarea>
 
