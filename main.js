@@ -25,41 +25,11 @@ $(document).ready(function() {
 				$('img').hide();
 				$('span').text(new Date() - start + "ms");
 
-				$('h2').show();
-				$('#publications').val(JSON.stringify(publicationsJSON)).show();
-				$('#authors').val(JSON.stringify(authorsJSON)).show();
+				//$('h2').show();
+				//$('#publications').val(JSON.stringify(publicationsJSON)).show();
+				//$('#authors').val(JSON.stringify(authorsJSON)).show();
 				
-				for(var i = 0; i < publicationsJSON.length; i++) {
-					var pub = publicationsJSON[i];
-					var name = pub.id;
-					var year = pub.year;
-					var authors = pub.authors;
-		
-				for(var j = 0; j < authors.length; j++) {
-					var author = authors[j].name;
-
-					// Year			
-					var yearInd = getIndex(data.children, year);
-					if(yearInd === undefined) {
-						data.children.push({ name: year, children: [] });
-						yearInd = data.children.length-1;
-					}
-					var yearData = data.children[yearInd];
-			
-					// Author
-					var authInd = getIndex(yearData.children, author);
-					if(authInd === undefined) {
-						yearData.children.push({ name: author, children: [] });
-						authInd = yearData.children.length-1;
-					}
-					var authData = yearData.children[authInd];
-			
-					// Publication
-					authData.children.push({ name: name, size: 3000 });
-				}
-			}
-			console.log(data);
-			$('#data').val(JSON.stringify(data)).show();
+				createData();
 	
 			});
 		});
@@ -108,7 +78,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
-//root = data; //diese rein. die beiden drunter raus.
+root = data; //diese rein. die beiden drunter raus.
 d3.json("staticData2.json", function(error, root) {
   if (error) return console.error(error);
 
@@ -149,22 +119,27 @@ d3.json("staticData2.json", function(error, root) {
 		var person = this.__data__.parent.name;
 		var jahr = this.__data__.parent.parent.name;
 		var mit = "";
-	
+		var url = "";
 		for(var i=0; i < publicationsJSON.length; i++) {
 			if (publicationsJSON[i].id == clickedPub) {
 				
 				for(var j=0; j < publicationsJSON[j].authors.length; j++){
-						mit = mit + ", " + publicationsJSON[i].authors[j].name
-						+ "(" +  publicationsJSON[i].authors[j].url + ")";
+
+						if (publicationsJSON[i].authors[j].url != undefined){
+							url =  publicationsJSON[i].authors[j].url ;
+						}					
+					
+					//	document.getElementById("#autoren").appendChild(publicationsJSON[i].authors[j].name);
+						mit = mit + " # " + '<a href="' + url + '">' + publicationsJSON[i].authors[j].name + "</a>";
 				}
+				var titel = publicationsJSON[i].title.name + " (" + publicationsJSON[i].year + ")";
 				
-				var infotext = "Publikation: " + clickedPub 
-									+ " ### Jahr: " + publicationsJSON[i].year 
-									+ " ### Autoren: " 
-			//						 + person + " mit " 
+				var infotext = "Autoren: " 
 									 + mit;
+									 
 				console.log(publicationsJSON[i].year);
-				d3.select("#infotext").text(infotext);
+				d3.select("#infotext").text(titel);
+				d3.select("#autoren").html(infotext);
 			}
 		}
 		//d3.select("#infotext").text(function(d) {return infotext});
@@ -195,8 +170,12 @@ d3.json("staticData2.json", function(error, root) {
   			$( ".node--leaf" ).each(function() {
   					this.style.fill = "white";
   			});		
+  			
+  			d3.select("#maus").text(this.__data__.name);
   	});
 /*###### ende hover gleiche Leafs  #####*/  
+  
+  
   
   
   /*########  route anzeigen beim Klick/zoomen (alle Ebenen)  ########*/
@@ -220,14 +199,19 @@ d3.json("staticData2.json", function(error, root) {
   /*#####  maus zeigt auf..  ####*/
   
   $( ".node" ).hover(function(){
+  	
+  		var anzahl = "-";
+  		if(this.__data__.class != (".node--leaf")){
+  			anzahl = this.__data__.children.length;	
+  		}
   		//anzeigen wie die Node heißt
-		d3.select("#maus").text(this.__data__.name);  
+		d3.select("#maus").text(this.__data__.name + " (" + anzahl + ")");  
   	
   	});
 
  /*#####  Schieberegler   ############*/
 
-
+/*
 //	d3.slider().min(minyear).max(maxyear);  
   d3.select("#slider").on("input", function() {
   	
@@ -241,8 +225,8 @@ d3.json("staticData2.json", function(error, root) {
 //	var meinslider = d3.slider().min(minyear).max(maxyear);
 // Render the slider in the div
 //	d3.select('#slider2').call(meinslider);
-	
-	$(function() {
+	*/
+/*	$(function() {
 		
 	$("#slider2").slider({
 		
@@ -258,7 +242,7 @@ d3.json("staticData2.json", function(error, root) {
 // + " bis " + $("slider2").slider("values", 1));
  		
 	});	
-
+*/
   
   zoomTo([root.x, root.y, root.r * 2 + margin]);
 
@@ -303,13 +287,48 @@ d3.select(self.frameElement).style("height", diameter + "px");
 
 /* ##### Daten in die JSON Form bringen für die bubble funktion ###### */
 
-function getIndex(data, name) {
-	for(var i = 0; i < data.length; i++) {
-		if(data[i].name == name) return i;
+	function getIndex(data, name) {
+		for(var i = 0; i < data.length; i++) {
+			if(data[i].name == name) return i;
+		}
+		return undefined;
 	}
-	return undefined;
-}
 
+
+	function createData(){
+	
+		for(var i = 0; i < publicationsJSON.length; i++) {
+					var pub = publicationsJSON[i];
+					var name = pub.id;
+					var year = pub.year;
+					var authors = pub.authors;
+		
+				for(var j = 0; j < authors.length; j++) {
+					var author = authors[j].name;
+
+					// Year			
+					var yearInd = getIndex(data.children, year);
+					if(yearInd === undefined) {
+						data.children.push({ name: year, children: [] });
+						yearInd = data.children.length-1;
+					}
+					var yearData = data.children[yearInd];
+			
+					// Author
+					var authInd = getIndex(yearData.children, author);
+					if(authInd === undefined) {
+						yearData.children.push({ name: author, children: [] });
+						authInd = yearData.children.length-1;
+					}
+					var authData = yearData.children[authInd];
+			
+					// Publication
+					authData.children.push({ name: name, size: 3000 });
+				}
+			}
+		//	console.log(data);
+		//	$('#data').val(JSON.stringify(data)).show();
+	}
 
 
 
