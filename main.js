@@ -29,7 +29,7 @@ $(document).ready(function() {
 				//$('#publications').val(JSON.stringify(publicationsJSON)).show();
 				//$('#authors').val(JSON.stringify(authorsJSON)).show();
 				
-				createData();
+				createData(); //erstellt das JSON Objet in der Hierarchie wie die Bubbles angezeigt werden sollen
 	
 			});
 		});
@@ -40,7 +40,7 @@ $(document).ready(function() {
 	// 		console.log("server", new Date() - start);
 	// })
 	
-	/*#################   Code der Bubbleseite ###############*/
+	/*#################   Code der Bubbleseite (grundlagen übernommen) ###############*/
 	
 
 //var jahr = "Du siehst alle Jahre";
@@ -78,7 +78,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
-root = data; //diese rein. die beiden drunter raus.
+root = data; //diese rein. die beiden drunter raus. funktioniert nicht ganz
 d3.json("staticData2.json", function(error, root) {
   if (error) return console.error(error);
 
@@ -120,26 +120,36 @@ d3.json("staticData2.json", function(error, root) {
 		var jahr = this.__data__.parent.parent.name;
 		var mit = "";
 		var url = "";
+		d3.select("#award").html(" ");//zurücksetzen
+		
 		for(var i=0; i < publicationsJSON.length; i++) {
+			
 			if (publicationsJSON[i].id == clickedPub) {
 				
-				for(var j=0; j < publicationsJSON[j].authors.length; j++){
-
-						if (publicationsJSON[i].authors[j].url != undefined){
+				for(var j=0; j < publicationsJSON[i].authors.length; j++){
+					//	console.log(publicationsJSON[i].authors.length);
+					//	console.log(j);
+						if (typeof publicationsJSON[i].authors[j].url != 'undefined'){
 							url =  publicationsJSON[i].authors[j].url ;
-						}					
-					
-					//	document.getElementById("#autoren").appendChild(publicationsJSON[i].authors[j].name);
-						mit = mit + " # " + '<a href="' + url + '">' + publicationsJSON[i].authors[j].name + "</a>";
+											
+							mit = mit + " # " + '<a href="' + url + '">' + publicationsJSON[i].authors[j].name + "</a>";
+						} else {
+							
+							mit = mit + " # " +  publicationsJSON[i].authors[j].name ;	
+						}
+						
+						if (publicationsJSON[i].award === true){
+							d3.select("#award").html("</br>pr&auml;miert");
+						}
 				}
-				var titel = publicationsJSON[i].title.name + " (" + publicationsJSON[i].year + ")";
+				var titel = "</br> <b> Titel: </b><i>" + publicationsJSON[i].title.name + "</i> (" + publicationsJSON[i].year + ")";
+				var infotext = " </br> <b>Autoren:</b> " + mit;
+				var desc = "</br> <b> Beschreibung: </b>" + publicationsJSON[i].description.html;					 
 				
-				var infotext = "Autoren: " 
-									 + mit;
-									 
 				console.log(publicationsJSON[i].year);
-				d3.select("#infotext").text(titel);
+				d3.select("#infotext").html(titel);
 				d3.select("#autoren").html(infotext);
+				d3.select("#desc").html(desc);
 			}
 		}
 		//d3.select("#infotext").text(function(d) {return infotext});
@@ -191,7 +201,7 @@ d3.json("staticData2.json", function(error, root) {
 				d3.select("#info").text("Du befindest Dich hier: " + parent + " - " + route);
 		}*/
 		
-		d3.select("#info").text("Du befindest Dich hier: " + parent + " - " + route);
+		d3.select("#info").text("Du hast hier rein gezoomt: " + parent + " - " + route);
 
 	});
   
@@ -199,14 +209,35 @@ d3.json("staticData2.json", function(error, root) {
   /*#####  maus zeigt auf..  ####*/
   
   $( ".node" ).hover(function(){
-  	
-  		var anzahl = "-";
-  		if(this.__data__.class != (".node--leaf")){
+  		
+  		var anzahl = "";
+  		
+  	//	if(this.__data__.class != (".node--leaf")){
   			anzahl = this.__data__.children.length;	
-  		}
+  	//	}
   		//anzeigen wie die Node heißt
 		d3.select("#maus").text(this.__data__.name + " (" + anzahl + ")");  
-  	
+  		
+ /* 		//gleiche autoren farbig markieren
+  		if(this.__data__.children().class == (".node--leaf")){
+  			console.log(this.style.fill);
+  			var authornode = this.__data__.name;
+  			$( ".node" ).each(function() {
+  				if(this.__data__.name == authornode) {
+  					this.style.fill = "yellow";
+  				}
+			});
+  		}*/
+  	}, function() {
+		/*	if(this.__data__.class == (".node--leaf")){
+  				var authornode = this.__data__.name;
+
+  				$( ".node" ).each(function() {
+  						this.style.fill = "white";
+  				});
+  			}*/		
+  			
+  		//	d3.select("#maus").text(this.__data__.name);
   	});
 
  /*#####  Schieberegler   ############*/

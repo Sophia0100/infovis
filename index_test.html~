@@ -59,6 +59,20 @@
 #info {
 	font-weight:bold;
 }
+
+#anzeigebereich {
+	position:absolute;
+	right:20px;
+	width:400px;
+}
+
+
+#award {
+	text-align: center;
+	color: #B8860B;
+	font-weight:bold;
+}
+
 </style>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -76,23 +90,29 @@
 			
 		</textarea>
 		
-		<textarea style="display: none;" id="data" rows="2" cols="100">
+		<textarea style="display: none;" id="data" rows="5" cols="100">
 			
 		</textarea>
-
-		<div id="info"> <p>Du befindest Dich hier: <br> </div>
+		
+		<div id="info"> <p> Du hast hier rein gezoomt: <br> </div>
 		<br>
-		Infos über die gewählte Publikation:<div id="infotext"></div>
+		<div id="anzeigebereich">
+		<b>Infos über die gewählte Publikation:</b><div id="infotext"></div>
+		<div id="autoren"></div>
+		<div id="desc"></div>
+		<div id="award"></div>
 		</p>
 
+		</div>
+		
 <!--		<div id="slider" ></div>-->
-		<div id="slidertextmin">Jahre einschränken</div>
+<!--		<div id="slidertextmin">Jahre einschränken</div>
 		<input id="slider" class="d3-slider" type="range" min="1950" max="2100"  >	
 		<div id="slidertextmax"></div>
 		
 		<div id="slider2">zweiter slider</div>		
 		
-		<div id="vonbis"></div>
+		<div id="vonbis"></div>  -->
 		<div id="maus"></div>
 			
 	</body>

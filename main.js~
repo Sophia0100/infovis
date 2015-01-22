@@ -25,41 +25,11 @@ $(document).ready(function() {
 				$('img').hide();
 				$('span').text(new Date() - start + "ms");
 
-				$('h2').show();
-				$('#publications').val(JSON.stringify(publicationsJSON)).show();
-				$('#authors').val(JSON.stringify(authorsJSON)).show();
+				//$('h2').show();
+				//$('#publications').val(JSON.stringify(publicationsJSON)).show();
+				//$('#authors').val(JSON.stringify(authorsJSON)).show();
 				
-				for(var i = 0; i < publicationsJSON.length; i++) {
-					var pub = publicationsJSON[i];
-					var name = pub.id;
-					var year = pub.year;
-					var authors = pub.authors;
-		
-				for(var j = 0; j < authors.length; j++) {
-					var author = authors[j].name;
-
-					// Year			
-					var yearInd = getIndex(data.children, year);
-					if(yearInd === undefined) {
-						data.children.push({ name: year, children: [] });
-						yearInd = data.children.length-1;
-					}
-					var yearData = data.children[yearInd];
-			
-					// Author
-					var authInd = getIndex(yearData.children, author);
-					if(authInd === undefined) {
-						yearData.children.push({ name: author, children: [] });
-						authInd = yearData.children.length-1;
-					}
-					var authData = yearData.children[authInd];
-			
-					// Publication
-					authData.children.push({ name: name, size: 3000 });
-				}
-			}
-			console.log(data);
-			$('#data').val(JSON.stringify(data)).show();
+				createData(); //erstellt das JSON Objet in der Hierarchie wie die Bubbles angezeigt werden sollen
 	
 			});
 		});
@@ -70,7 +40,7 @@ $(document).ready(function() {
 	// 		console.log("server", new Date() - start);
 	// })
 	
-	/*#################   Code der Bubbleseite ###############*/
+	/*#################   Code der Bubbleseite (grundlagen übernommen) ###############*/
 	
 
 //var jahr = "Du siehst alle Jahre";
@@ -108,8 +78,8 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
-//root = data; //diese rein. die beiden drunter raus.
-d3.json("staticData.json", function(error, root) {
+root = data; //diese rein. die beiden drunter raus.
+d3.json("staticData2.json", function(error, root) {
   if (error) return console.error(error);
 
   var focus = root,
@@ -149,22 +119,37 @@ d3.json("staticData.json", function(error, root) {
 		var person = this.__data__.parent.name;
 		var jahr = this.__data__.parent.parent.name;
 		var mit = "";
-	
+		var url = "";
+		d3.select("#award").html(" ");//zurücksetzen
+		
 		for(var i=0; i < publicationsJSON.length; i++) {
+			
 			if (publicationsJSON[i].id == clickedPub) {
 				
-				for(var j=0; j < publicationsJSON[j].authors.length; j++){
-						mit = mit + ", " + publicationsJSON[i].authors[j].name
-						+ "(" +  publicationsJSON[i].authors[j].url + ")";
+				for(var j=0; j < publicationsJSON[i].authors.length; j++){
+					//	console.log(publicationsJSON[i].authors.length);
+					//	console.log(j);
+						if (typeof publicationsJSON[i].authors[j].url != 'undefined'){
+							url =  publicationsJSON[i].authors[j].url ;
+											
+							mit = mit + " # " + '<a href="' + url + '">' + publicationsJSON[i].authors[j].name + "</a>";
+						} else {
+							
+							mit = mit + " # " +  publicationsJSON[i].authors[j].name ;	
+						}
+						
+						if (publicationsJSON[i].award === true){
+							d3.select("#award").html("</br>pr&auml;miert");
+						}
 				}
+				var titel = "</br> <b> Titel: </b><i>" + publicationsJSON[i].title.name + "</i> (" + publicationsJSON[i].year + ")";
+				var infotext = " </br> <b>Autoren:</b> " + mit;
+				var desc = "</br> <b> Beschreibung: </b>" + publicationsJSON[i].description.html;					 
 				
-				var infotext = "Publikation: " + clickedPub 
-									+ " ### Jahr: " + publicationsJSON[i].year 
-									+ " ### Autoren: " 
-			//						 + person + " mit " 
-									 + mit;
 				console.log(publicationsJSON[i].year);
-				d3.select("#infotext").text(infotext);
+				d3.select("#infotext").html(titel);
+				d3.select("#autoren").html(infotext);
+				d3.select("#desc").html(desc);
 			}
 		}
 		//d3.select("#infotext").text(function(d) {return infotext});
@@ -195,8 +180,12 @@ d3.json("staticData.json", function(error, root) {
   			$( ".node--leaf" ).each(function() {
   					this.style.fill = "white";
   			});		
+  			
+  			d3.select("#maus").text(this.__data__.name);
   	});
 /*###### ende hover gleiche Leafs  #####*/  
+  
+  
   
   
   /*########  route anzeigen beim Klick/zoomen (alle Ebenen)  ########*/
@@ -212,7 +201,7 @@ d3.json("staticData.json", function(error, root) {
 				d3.select("#info").text("Du befindest Dich hier: " + parent + " - " + route);
 		}*/
 		
-		d3.select("#info").text("Du befindest Dich hier: " + parent + " - " + route);
+		d3.select("#info").text("Du hast hier rein gezoomt: " + parent + " - " + route);
 
 	});
   
@@ -220,14 +209,40 @@ d3.json("staticData.json", function(error, root) {
   /*#####  maus zeigt auf..  ####*/
   
   $( ".node" ).hover(function(){
+  		
+  		var anzahl = "";
+  		
+  	//	if(this.__data__.class != (".node--leaf")){
+  			anzahl = this.__data__.children.length;	
+  	//	}
   		//anzeigen wie die Node heißt
-		d3.select("#maus").text(this.__data__.name);  
-  	
+		d3.select("#maus").text(this.__data__.name + " (" + anzahl + ")");  
+  		
+ /* 		//gleiche autoren farbig markieren
+  		if(this.__data__.children().class == (".node--leaf")){
+  			console.log(this.style.fill);
+  			var authornode = this.__data__.name;
+  			$( ".node" ).each(function() {
+  				if(this.__data__.name == authornode) {
+  					this.style.fill = "yellow";
+  				}
+			});
+  		}*/
+  	}, function() {
+		/*	if(this.__data__.class == (".node--leaf")){
+  				var authornode = this.__data__.name;
+
+  				$( ".node" ).each(function() {
+  						this.style.fill = "white";
+  				});
+  			}*/		
+  			
+  		//	d3.select("#maus").text(this.__data__.name);
   	});
 
  /*#####  Schieberegler   ############*/
 
-
+/*
 //	d3.slider().min(minyear).max(maxyear);  
   d3.select("#slider").on("input", function() {
   	
@@ -241,8 +256,8 @@ d3.json("staticData.json", function(error, root) {
 //	var meinslider = d3.slider().min(minyear).max(maxyear);
 // Render the slider in the div
 //	d3.select('#slider2').call(meinslider);
-	
-	$(function() {
+	*/
+/*	$(function() {
 		
 	$("#slider2").slider({
 		
@@ -258,7 +273,7 @@ d3.json("staticData.json", function(error, root) {
 // + " bis " + $("slider2").slider("values", 1));
  		
 	});	
-
+*/
   
   zoomTo([root.x, root.y, root.r * 2 + margin]);
 
@@ -303,13 +318,48 @@ d3.select(self.frameElement).style("height", diameter + "px");
 
 /* ##### Daten in die JSON Form bringen für die bubble funktion ###### */
 
-function getIndex(data, name) {
-	for(var i = 0; i < data.length; i++) {
-		if(data[i].name == name) return i;
+	function getIndex(data, name) {
+		for(var i = 0; i < data.length; i++) {
+			if(data[i].name == name) return i;
+		}
+		return undefined;
 	}
-	return undefined;
-}
 
+
+	function createData(){
+	
+		for(var i = 0; i < publicationsJSON.length; i++) {
+					var pub = publicationsJSON[i];
+					var name = pub.id;
+					var year = pub.year;
+					var authors = pub.authors;
+		
+				for(var j = 0; j < authors.length; j++) {
+					var author = authors[j].name;
+
+					// Year			
+					var yearInd = getIndex(data.children, year);
+					if(yearInd === undefined) {
+						data.children.push({ name: year, children: [] });
+						yearInd = data.children.length-1;
+					}
+					var yearData = data.children[yearInd];
+			
+					// Author
+					var authInd = getIndex(yearData.children, author);
+					if(authInd === undefined) {
+						yearData.children.push({ name: author, children: [] });
+						authInd = yearData.children.length-1;
+					}
+					var authData = yearData.children[authInd];
+			
+					// Publication
+					authData.children.push({ name: name, size: 3000 });
+				}
+			}
+		//	console.log(data);
+		//	$('#data').val(JSON.stringify(data)).show();
+	}
 
 
 
